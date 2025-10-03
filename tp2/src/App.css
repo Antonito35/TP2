@@ -1,11 +1,16 @@
-/* 🌍 Style global */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
+
 
 h1 {
   text-align: center;
@@ -19,15 +24,17 @@ h2 {
   margin-top: 20px;
 }
 
-/* 📝 Formulaire */
+
 .form {
   max-width: 600px;
-  margin: 20px auto;
+  width: 90%;
+  margin: 40px auto; 
   padding: 20px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 label {
   display: block;
@@ -70,17 +77,21 @@ button:hover:not(:disabled) {
 }
 
 .error {
-  color: #e74c3c;
-  font-size: 14px;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  background: #fdecea;
+  color: #d93025;
+  padding: 8px 12px;
+  border-left: 4px solid #d93025;
+  border-radius: 4px;
+  font-size: 13px;
+  margin: 8px 0;
 }
 
-/* ✅ Liste des tâches */
+
 ul {
   list-style: none;
   padding: 0;
   max-width: 600px;
+  width: 90%;
   margin: 20px auto;
 }
 
@@ -106,7 +117,7 @@ li input[type="checkbox"] {
   cursor: pointer;
 }
 
-/* 🎯 Contenu de la tâche */
+
 .task-content {
   flex-grow: 1;
   margin-left: 10px;
@@ -131,7 +142,7 @@ li input[type="checkbox"] {
   border-radius: 12px;
 }
 
-/* ✨ Styles si la tâche est faite */
+
 li.done .task-title {
   text-decoration: line-through;
   color: #888;
@@ -142,7 +153,6 @@ li.done .task-desc {
   color: #aaa;
 }
 
-/* 🗑️ Bouton supprimer */
 button.delete {
   background-color: #e74c3c;
 }
@@ -151,21 +161,3 @@ button.delete:hover {
   background-color: #c0392b;
 }
 
-/* 📱 Responsivité */
-@media (max-width: 600px) {
-  li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  button.delete {
-    margin-top: 10px;
-  }
-}
-
-/* 📌 Pied de page */
-p {
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-}
