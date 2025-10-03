@@ -1,42 +1,171 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* 🌍 Style global */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h1 {
   text-align: center;
+  color: #4a90e2;
+  margin-top: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 📝 Formulaire */
+.form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
-.card {
-  padding: 2em;
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
-.read-the-docs {
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #357ab8;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* ✅ Liste des tâches */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+li {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.01);
+}
+
+li input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* 🎯 Contenu de la tâche */
+.task-content {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.task-title {
+  font-weight: bold;
+  display: block;
+}
+
+.task-desc {
+  font-size: 13px;
+  color: #666;
+  margin: 3px 0 5px 0;
+}
+
+.due-date {
+  font-size: 12px;
   color: #888;
+  background: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+/* ✨ Styles si la tâche est faite */
+li.done .task-title {
+  text-decoration: line-through;
+  color: #888;
+}
+
+li.done .task-desc {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+/* 🗑️ Bouton supprimer */
+button.delete {
+  background-color: #e74c3c;
+}
+
+button.delete:hover {
+  background-color: #c0392b;
+}
+
+/* 📱 Responsivité */
+@media (max-width: 600px) {
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  button.delete {
+    margin-top: 10px;
+  }
+}
+
+/* 📌 Pied de page */
+p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
 }
