@@ -58,10 +58,4 @@ Cette application vous permet de **gérer vos tâches quotidiennes** facilement 
 
 ---
 
-## 📷 Capture d’écran
-
-*(Ajoutez ici une capture d’écran de l’application pour que l’utilisateur voie à quoi ça ressemble)*
-
----
-
 Profitez de votre gestionnaire de tâches et organisez vos journées plus facilement ! ✅
