@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-// Définition du type de tâche
+// Définition du type d'une tâche
 type Task = {
   title: string;
   description: string;
@@ -10,7 +10,10 @@ type Task = {
 };
 
 function App() {
-  // États
+  // --- États ---
+  // title, description, dueDate : valeurs saisies dans le formulaire
+  // tasks : liste des tâches avec persistance dans localStorage
+  // error : message d'erreur à afficher
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
@@ -20,12 +23,13 @@ function App() {
   });
   const [error, setError] = useState('');
 
-  // Sauvegarde dans localStorage
+  // --- Persistance des tâches dans le navigateur ---
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // Ajouter une tâche
+  // --- Ajouter une tâche ---
+  // Vérifie la validité du titre et de la date avant d'ajouter
   const handleAddTask = () => {
     if (title.trim().length < 3) {
       setError('Le titre doit contenir au moins 3 caractères.');
@@ -34,7 +38,7 @@ function App() {
 
     if (dueDate) {
       const today = new Date();
-      today.setHours(0, 0, 0, 0); // Ignorer l’heure pour la comparaison
+      today.setHours(0, 0, 0, 0);
       const selectedDate = new Date(dueDate);
       if (selectedDate < today) {
         setError('La date d’échéance doit être aujourd’hui ou dans le futur.');
@@ -56,7 +60,8 @@ function App() {
     setError('');
   };
 
-  // Changer le statut via la case à cocher
+  // --- Changer le statut d’une tâche ---
+  // Coche/décoche la case et barre le texte si fait
   const toggleTaskStatus = (index: number) => {
     const updatedTasks = tasks.map((task, i) =>
       i === index
@@ -66,7 +71,7 @@ function App() {
     setTasks(updatedTasks);
   };
 
-  // Supprimer une tâche
+  // --- Supprimer une tâche ---
   const handleDeleteTask = (index: number) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
@@ -76,7 +81,7 @@ function App() {
     <>
       <h1>Gestion des tâches</h1>
 
-      {/* Formulaire */}
+      {/* --- Formulaire d’ajout de tâche --- */}
       <div className="form">
         <label htmlFor="title">Titre (obligatoire)</label>
         <input
@@ -110,7 +115,7 @@ function App() {
         {error && <p className="error">{error}</p>}
       </div>
 
-      {/* Liste des tâches */}
+      {/* --- Liste des tâches --- */}
       <h2>Liste des tâches</h2>
       <ul>
         {tasks.map((task, index) => (
@@ -132,7 +137,7 @@ function App() {
         ))}
       </ul>
 
-      {/* Pied de page */}
+      {/* --- Pied de page : résumé des tâches --- */}
       <p>
         {tasks.filter((task) => task.status === 'à faire').length} à faire /{' '}
         {tasks.filter((task) => task.status === 'fait').length} faites
